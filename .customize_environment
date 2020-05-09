@@ -1,3 +1,6 @@
-echo "deb http://ftp.de.debian.org/debian bullseye main" | sudo tee -a /etc/apt/source.list.d/bullseye.list
-sudo apt update
-sudp apt install neovim -y
+apt-add-repository "deb http://ftp.de.debian.org/debian bullseye main"
+apt update
+apt install neovim -y
+apt install ripgrep -y
+pip3 install pynvim
+npm install -g neovim

@@ -1,0 +1,13 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Kamaz
+	email = kamaz@xsimple.org
+[core]
+	editor = nvim
+[alias]
+	st = status
+	ci = commit
+	br = branch
+	co = checkout
+	amend = commit --amend
+	last = log -1 HEAD
