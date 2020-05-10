@@ -10,4 +10,4 @@ gcloud secrets create github_ssh_key_pub --data-file=id_rsa.pub --labels=type=pe
 
 # Useful Links
 
-- (Google Cloud Shell Documentation)[https://github.com/kamaz/gcloud-shell]
+- [Google Cloud Shell Documentation](https://github.com/kamaz/gcloud-shell)
