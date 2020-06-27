@@ -1,7 +1,8 @@
 pip3 install awscli
-apt-add-repository "deb http://ftp.de.debian.org/debian bullseye main"
+curl -L https://github.com/neovim/neovim/releases/download/v0.4.3/nvim.appimage -o nvim.appimage
+chmod +x nvim.appimage
+mv nvim.appimage /usr/local/bin/nvim
 apt update
-apt install neovim -y
 apt install ripgrep -y
 pip3 install pynvim
 npm install -g neovim
