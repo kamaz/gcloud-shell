@@ -174,6 +174,8 @@ let g:airline_section_z = airline#section#create(['linenr'])
 " Do not draw separators for empty sections (only for the active window) >
 let g:airline_skip_empty_sections = 1
 
+let g:airline#extensions#tabline#enabled = 1
+
 " Smartly uniquify buffers names with similar filename, suppressing common parts of paths.
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 
@@ -455,6 +457,8 @@ set smartcase
 
 " Automatically re-read file if a change was detected outside of vim
 set autoread
+" autoread when changing buffers
+au FocusGained,BufEnter * :checktime
 
 " Enable line numbers
 set number
