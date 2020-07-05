@@ -1,7 +1,8 @@
 # gcloud-shell
-personal gcloud shell configuration
 
-# How to install secrets to Secret Manager
+Personal gcloud shell configuration
+
+## How to install secrets to Secret Manager
 
 ```shell
 gcloud secrets create github_ssh_key --data-file=id_rsa --labels=type=personal --replication-policy=automatic
@@ -17,6 +18,10 @@ gcloud secrets versions access latest --secret=github_ssh_key_pub
 gcloud secrets versions access latest --secret=aws_credentials
 ```
 
-# Useful Links
+## Denite
+
+`Ctrl-O` - to enter the denite buffer
+
+## Useful Links
 
 - [Google Cloud Shell Documentation](https://github.com/kamaz/gcloud-shell)

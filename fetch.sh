@@ -8,4 +8,5 @@ cp -r $HOME/.config/nvim/snippets .config/nvim/snippets
 
 cp $HOME/.gitconfig .
 cp $HOME/.tmux.conf .
+cp $HOME/.customize_environment  .
 
