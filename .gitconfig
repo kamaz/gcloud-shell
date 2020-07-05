@@ -1,5 +1,9 @@
 # This is Git's per-user configuration file.
 [user]
+# Please adapt and uncomment the following lines:
+#	name = Kamaz
+#	email = kamaz@kamazs-mbp.home
+[user]
 	name = Kamaz
 	email = kamaz@xsimple.org
 [core]

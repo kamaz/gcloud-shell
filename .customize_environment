@@ -4,5 +4,6 @@ chmod +x nvim.appimage
 mv nvim.appimage /usr/local/bin/nvim
 apt update
 apt install ripgrep -y
+apt install tree -y
 pip3 install pynvim
 npm install -g neovim

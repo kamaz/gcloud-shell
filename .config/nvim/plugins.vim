@@ -47,6 +47,7 @@ Plug 'Shougo/echodoc.vim'
 " Enable git changes to be shown in sign column
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
 
 " === Javascript Plugins === "
 " Typescript syntax highlighting
@@ -86,6 +87,10 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Comments
 Plug 'tpope/vim-commentary'
+
+" Go
+"
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Initialize plugin system
 call plug#end()

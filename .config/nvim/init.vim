@@ -92,8 +92,9 @@ call denite#custom#var('buffer', 'date_format', '')
 "   prompt_highlight        - Specify color of prompt
 "   highlight_matched_char  - Matched characters highlight
 "   highlight_matched_range - matched range highlight
+"\ 'split': 'floating',
 let s:denite_options = {'default' : {
-\ 'split': 'floating',
+\ 'split': 'horizontal',
 \ 'start_filter': 1,
 \ 'auto_resize': 1,
 \ 'source_names': 'short',
@@ -119,6 +120,9 @@ call s:profile(s:denite_options)
 catch
   echo 'Denite not installed. It should work after running :PlugInstall'
 endtry
+
+call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>', 'noremap')
+call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>', 'noremap')
 
 " === Coc.nvim === "
 " use <tab> for trigger completion and navigate to next complete item
@@ -326,7 +330,7 @@ endtry
 "   <leader>g - Search current directory for occurences of given term and close window if no results
 "   <leader>j - Search current directory for occurences of word under cursor
 nmap ; :Denite buffer<CR>
-nmap <leader>t :DeniteProjectDir file/rec<CR>
+nmap <leader>p :DeniteProjectDir file/rec<CR>
 nnoremap <leader>g :<C-u>Denite grep:. -no-empty<CR>
 nnoremap <leader>j :<C-u>DeniteCursorWord grep:.<CR>
 
@@ -457,6 +461,7 @@ set smartcase
 
 " Automatically re-read file if a change was detected outside of vim
 set autoread
+
 " autoread when changing buffers
 au FocusGained,BufEnter * :checktime
 
@@ -480,3 +485,8 @@ set noswapfile
 if exists('g:loaded_webdevicons')
   call webdevicons#refresh()
 endif
+
+"
+" Close current buffer
+"
+nmap <leader>q :bd<CR>
