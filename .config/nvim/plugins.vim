@@ -33,15 +33,8 @@ Plug 'easymotion/vim-easymotion'
 " Intellisense Engine
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Denite - Fuzzy finding, buffer management
-Plug 'Shougo/denite.nvim'
-
 " Http client
 Plug 'aquach/vim-http-client'
-
-" Snippet support
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 
 " Print function signatures in echo area
 Plug 'Shougo/echodoc.vim'
@@ -65,9 +58,6 @@ Plug 'heavenshell/vim-jsdoc'
 
 " === Syntax Highlighting === "
 
-" Syntax highlighting for nginx
-Plug 'chr4/nginx.vim'
-
 " Syntax highlighting for javascript libraries
 Plug 'othree/javascript-libraries-syntax.vim'
 
@@ -76,26 +66,10 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'chiel92/vim-autoformat'
 
 " === UI === "
-" File explorer
-Plug 'scrooloose/nerdtree'
-
-" Colorscheme
-Plug 'mhartington/oceanic-next'
-
-" Customized vim status line
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 
 " Icons
 " Plug 'ryanoasis/vim-devicons'
 " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-
-" Comments
-Plug 'tpope/vim-commentary'
-
-" Go
-"
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Initialize plugin system
 call plug#end()
