@@ -1,157 +1,161 @@
-source ~/.config/nvim/plugins.vim
+scriptencoding utf-8
+let mapleader=","
 
-" ============================================================================ "
-" ===                           EDITING OPTIONS                            === "
-" ============================================================================ "
-"
-"
+" Set line number to be relative
+set number
+set rnu
 
-" Don't show last command
-set noshowcmd
+" Encoding
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8
+
+set fileformats=unix,dos,mac
+
+" Fix backspace indent
+set backspace=indent,eol,start
 
 " Hides buffers instead of closing them
 set hidden
 
-" === Completion Settings === "
+" === TAB/Space settings === "
+" Insert spaces when TAB is pressed.
+set expandtab
 
-" Don't give completion messages like 'match 1 of 2'
-" or 'The only match'
-set shortmess+=c
+" Change number of spaces that a <Tab> counts for during editing ops
+set softtabstop=2
 
-" === Coc.nvim === "
-" use <tab> for trigger completion and navigate to next complete item
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
+" Indentation amount for < and > commands.
+set shiftwidth=2
 
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+" do not wrap long lines by default
+set nowrap
 
-" Use <Tab> and <S-Tab> to navigate the completion list:
-" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" Don't highlight current cursor line
+set nocursorline
 
-" Use <cr> to confirm completion
-" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Disable line/column number in status line
+" Shows up in preview window when airline is disabled if not
+set noruler
 
-" To make <cr> select the first completion item and confirm the completion when no item has been selected:
-" inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+" Only one line for command line
+set cmdheight=1
 
-" To make coc.nvim format your code on <cr>, use keymap:
-" inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+"
+" Switching windows
+"
+noremap <M-j> <C-w>j
+noremap <M-k> <C-w>k
+noremap <M-l> <C-w>l
+noremap <M-h> <C-w>h
 
-"Close preview window when completion is done.
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+"
+" Buffers
+"
 
+" Navigation
+noremap <leader>z :bp<CR>
+noremap <leader>q :bp<CR>
+noremap <leader>x :bn<CR>
+noremap <leader>w :bn<CR>
 
-" === Snippet === "
-" Map <C-k> as shortcut to activate snippet if available
-" let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" Close buffer
+noremap <leader>c :bd<CR>
 
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+" Hides buffers instead of closing them
+set hidden
 
-" inoremap <silent><expr> <TAB>
-"       \ pumvisible() ? coc#_select_confirm() :
-"       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-"       \ <SID>check_back_space() ? "\<TAB>" :
-"       \ coc#refresh()
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-let g:coc_snippet_next = '<tab>'
-
-
-
-" === echodoc === "
-" Enable echodoc on startup
-let g:echodoc#enable_at_startup = 1
-
-" === vim-javascript === "
-" Enable syntax highlighting for JSDoc
-let g:javascript_plugin_jsdoc = 1
-
-" === vim-jsx === "
-" Highlight jsx syntax even in non .jsx files
-let g:jsx_ext_required = 0
-
-" === javascript-libraries-syntax === "
-let g:used_javascript_libs = 'underscore,requirejs,chai,jquery'
-
-" === Signify === "
-let g:signify_sign_delete = '-'
-
-
-" === coc.nvim === "
-"   <leader>dd    - Jump to definition of current symbol
-"   <leader>dr    - Jump to references of current symbol
-"   <leader>dj    - Jump to implementation of current symbol
-"   <leader>ds    - Fuzzy search current project symbols
-nmap <silent> <leader>dd <Plug>(coc-definition)
-nmap <silent> <leader>dr <Plug>(coc-references)
-nmap <silent> <leader>dj <Plug>(coc-implementation)
-nnoremap <silent> <leader>ds :<C-u>CocList -I -N --top symbols<CR>
-
-" === vim-better-whitespace === "
-"   <leader>y - Automatically remove trailing whitespace
-nmap <leader>y :StripWhitespace<CR>
-
-" === Search shorcuts === "
-"   <leader>h - Find and replace
-"   <leader>/ - Claer highlighted search terms while preserving history
-map <leader>h :%s///<left><left>
-nmap <silent> <leader>/ :nohlsearch<CR>
-
-" === Easy-motion shortcuts ==="
-"   <leader>w - Easy-motion highlights first word letters bi-directionally
-map <leader>w <Plug>(easymotion-bd-w)
-
-" Allows you to save files you opened without write permissions via sudo
-cmap w!! w !sudo tee %
-
-" === vim-jsdoc shortcuts ==="
-" Generate jsdoc for function under cursor
-nmap <leader>z :JsDoc<CR>
-
-" Delete current visual selection and dump in black hole buffer before pasting
-" Used when you want to paste over something without it getting copied to
-" Vim's default buffer
-vnoremap <leader>p "_dP
-
-" ============================================================================ "
-" ===                                 MISC.                                === "
-" ============================================================================ "
-
-" Automaticaly close nvim if NERDTree is only thing left open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" === Search === "
-" ignore case when searching
-set ignorecase
-
-" if the search string has an upper case letter in it, the search will be case sensitive
-set smartcase
-
-" Automatically re-read file if a change was detected outside of vim
-set autoread
-
-" autoread when changing buffers
-au FocusGained,BufEnter * :checktime
-
-" Enable spellcheck for markdown files
-autocmd BufRead,BufNewFile *.md setlocal spell
-
-
-" Reload icons after init source
-if exists('g:loaded_webdevicons')
-  call webdevicons#refresh()
+"
+" Yank and paste with the system clipboard
+"
+if has('unnamedplus')
+  set clipboard=unnamed,unnamedplus
 endif
 
+noremap YY "+y<CR>
+noremap <leader>p "+gP<CR>
+noremap XX "+x<CR>
+
+if has('macunix')
+  " pbcopy for OSX copy/paste
+  vmap <C-x> :!pbcopy<CR>
+  vmap <C-c> :w !pbcopy<CR><CR>
+endif
+
+"
+" Searching
+"
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+" Split
+noremap <Leader>h :<C-u>split<CR>
+noremap <Leader>v :<C-u>vsplit<CR>
+
+" Set working directory
+nnoremap <leader>. :lcd %:p:h<CR>
+
+" terminal emulation
+if exists('$SHELL')
+    set shell=$SHELL
+else
+    set shell=/bin/sh
+endif
+nnoremap <silent> <leader>sh :terminal<CR>
+"
+"" Clean search (highlight)
+nnoremap <silent> <leader><space> :noh<cr>
+
+"   <Space> - PageDown
+"   -       - PageUp
+noremap <Space> <PageDown>
+noremap - <PageUp>
+
+" Set backups
+if has('persistent_undo')
+  set undofile
+  set undolevels=3000
+  set undoreload=10000
+endif
+set backupdir=~/.local/share/nvim/backup " Don't put backups in current dir
+set backup
+set noswapfile
+
+"*****************************************************************************
+"" Abbreviations
+"*****************************************************************************
+" no one is really happy until you have this shortcuts
+cnoreabbrev W! w!
+cnoreabbrev Q! q!
+cnoreabbrev Qall! qall!
+cnoreabbrev Wq wq
+cnoreabbrev Wa wa
+cnoreabbrev wQ wq
+cnoreabbrev WQ wq
+cnoreabbrev W w
+cnoreabbrev Q q
+cnoreabbrev Qall qall
+
+"
+" Plugins Bootstrap
+"
+source ~/.config/nvim/plugins.vim
+
+"
+" Plugins Configuration
+"
+source ~/.config/nvim/airline.vim
+source ~/.config/nvim/commands.vim
+source ~/.config/nvim/coc.vim
+source ~/.config/nvim/denite.vim
+source ~/.config/nvim/functions.vim
+source ~/.config/nvim/git.vim
+source ~/.config/nvim/go.vim
+source ~/.config/nvim/haskell.vim
+source ~/.config/nvim/nerdtree.vim
+source ~/.config/nvim/oceanicnext.vim
+source ~/.config/nvim/snippets.vim
+source ~/.config/nvim/ui.vim
+source ~/.config/nvim/terraform.vim

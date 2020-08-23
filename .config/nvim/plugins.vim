@@ -19,57 +19,65 @@ if !filereadable(plugpath)
 endif
 
 call plug#begin('~/.config/nvim/plugged')
-
-" === Editing Plugins === "
-" Trailing whitespace highlighting & automatic fixing
-Plug 'ntpeters/vim-better-whitespace'
-
-" auto-close plugin
-Plug 'rstacruz/vim-closer'
-
-" Improved motion in Vim
-Plug 'easymotion/vim-easymotion'
+" Git
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
 
 " Intellisense Engine
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
 
-" Http client
-Plug 'aquach/vim-http-client'
+" Navigation
+" Alternative is to use fzf
+"   Plug 'junegunn/fzf.vim'
+Plug 'Shougo/denite.nvim'
 
-" Print function signatures in echo area
-Plug 'Shougo/echodoc.vim'
+" Go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'josa42/coc-go', {'do': 'yarn install --frozen-lockfile'}
 
-" === Git Plugins === "
-" Enable git changes to be shown in sign column
-Plug 'mhinz/vim-signify'
-Plug 'tpope/vim-fugitive'
+" Haskell Bundle
+Plug 'eagletmt/neco-ghc'
+Plug 'dag/vim2hs'
+Plug 'pbrisbin/vim-syntax-shakespeare'
+
+" NERDTree
+Plug 'scrooloose/nerdtree'
+
+"
+" Helps with commenting stuff out
+"
+Plug 'tpope/vim-commentary'
+
+"
+" Code Snipppets
+"
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+"
+" Theming
+"
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'mhartington/oceanic-next'
+
+"
+" A collection of language packs for Vim.
+"
+Plug 'sheerun/vim-polyglot'
+
+"
+" Surrond tool
+"
 Plug 'tpope/vim-surround'
-Plug 'jiangmiao/auto-pairs'
 
-" === Javascript Plugins === "
-" Typescript syntax highlighting
-Plug 'HerringtonDarkholme/yats.vim'
+"
+" Terrafrom
+"
+Plug 'hashivim/vim-terraform'
 
-" ReactJS JSX syntax highlighting
-Plug 'mxw/vim-jsx'
-
-" Generate JSDoc commands based on function signature
-Plug 'heavenshell/vim-jsdoc'
-
-" === Syntax Highlighting === "
-
-" Syntax highlighting for javascript libraries
-Plug 'othree/javascript-libraries-syntax.vim'
-
-" Improved syntax highlighting and indentation
-" Plug 'othree/yajs.vim'
-Plug 'chiel92/vim-autoformat'
-
-" === UI === "
-
-" Icons
-" Plug 'ryanoasis/vim-devicons'
-" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-
-" Initialize plugin system
 call plug#end()
+
