@@ -36,9 +36,12 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Denite - Fuzzy finding, buffer management
 Plug 'Shougo/denite.nvim'
 
+" Http client
+Plug 'aquach/vim-http-client'
+
 " Snippet support
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " Print function signatures in echo area
 Plug 'Shougo/echodoc.vim'
@@ -48,6 +51,7 @@ Plug 'Shougo/echodoc.vim'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
 
 " === Javascript Plugins === "
 " Typescript syntax highlighting
@@ -68,7 +72,8 @@ Plug 'chr4/nginx.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
 
 " Improved syntax highlighting and indentation
-Plug 'othree/yajs.vim'
+" Plug 'othree/yajs.vim'
+Plug 'chiel92/vim-autoformat'
 
 " === UI === "
 " File explorer
@@ -82,8 +87,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Icons
-Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Plug 'ryanoasis/vim-devicons'
+" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Comments
 Plug 'tpope/vim-commentary'

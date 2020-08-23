@@ -8,6 +8,7 @@
 	email = kamaz@xsimple.org
 [core]
 	editor = nvim
+	ignorecase = false
 [alias]
 	st = status
 	ci = commit
@@ -15,3 +16,8 @@
 	co = checkout
 	amend = commit --amend
 	last = log -1 HEAD
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
