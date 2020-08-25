@@ -148,14 +148,17 @@ source ~/.config/nvim/plugins.vim
 "
 source ~/.config/nvim/airline.vim
 source ~/.config/nvim/commands.vim
-source ~/.config/nvim/coc.vim
-source ~/.config/nvim/denite.vim
+" source ~/.config/nvim/denite.vim
+source ~/.config/nvim/devicons.vim
 source ~/.config/nvim/functions.vim
+source ~/.config/nvim/fzf.vim
 source ~/.config/nvim/git.vim
 source ~/.config/nvim/go.vim
 source ~/.config/nvim/haskell.vim
 source ~/.config/nvim/nerdtree.vim
 source ~/.config/nvim/oceanicnext.vim
+source ~/.config/nvim/gruvbox.vim
 source ~/.config/nvim/snippets.vim
 source ~/.config/nvim/ui.vim
 source ~/.config/nvim/terraform.vim
+source ~/.config/nvim/coc.vim

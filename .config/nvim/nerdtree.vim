@@ -19,8 +19,8 @@ try
   " === Key Mapping === "
   "  <leader>n - Toggle NERDTree on/off
   "  <leader>f - Opens current file location in NERDTree
-  nmap <leader>n :NERDTreeToggle<CR>
-  nmap <leader>f :NERDTreeFind<CR>
+  nmap <leader>no :NERDTreeToggle<CR>
+  nmap <leader>nf :NERDTreeFind<CR>
 catch
   echo 'NERDTree not installed. It should work after running :PlugInstall'
 endtry

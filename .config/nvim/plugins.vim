@@ -27,12 +27,20 @@ Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-sources', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
+Plug 'amiralies/coc-flow', {'do': 'yarn install --frozen-lockfile'}
 
 " Navigation
-" Alternative is to use fzf
-"   Plug 'junegunn/fzf.vim'
-Plug 'Shougo/denite.nvim'
+if isdirectory('/usr/local/opt/fzf')
+  Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+else
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+  Plug 'junegunn/fzf.vim'
+endif
+" Plug 'Shougo/denite.nvim'
 
 " Go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -62,7 +70,9 @@ Plug 'honza/vim-snippets'
 "
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'mhartington/oceanic-next'
+" Plug 'mhartington/oceanic-next'
+Plug 'morhetz/gruvbox'
+Plug 'ryanoasis/vim-devicons'
 
 "
 " A collection of language packs for Vim.
@@ -78,6 +88,11 @@ Plug 'tpope/vim-surround'
 " Terrafrom
 "
 Plug 'hashivim/vim-terraform'
+
+"
+" Http Client
+"
+Plug 'aquach/vim-http-client'
 
 call plug#end()
 

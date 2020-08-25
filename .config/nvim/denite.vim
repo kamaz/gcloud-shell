@@ -25,6 +25,27 @@ try
   call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
   call denite#custom#var('grep', 'separator', ['--'])
   call denite#custom#var('grep', 'final_opts', [])
+  
+" Add custom menus
+	let s:menus = {}
+
+	let s:menus.zsh = {
+		\ 'description': 'Edit your import zsh configuration'
+		\ }
+	let s:menus.zsh.file_candidates = [
+		\ ['zshrc', '~/.config/zsh/.zshrc'],
+		\ ['zshenv', '~/.zshenv'],
+		\ ]
+
+	let s:menus.my_commands = {
+		\ 'description': 'Example commands'
+		\ }
+	let s:menus.my_commands.command_candidates = [
+		\ ['Split the window', 'vnew'],
+		\ ['Open zsh menu', 'Denite menu:zsh'],
+		\ ['Format code', 'FormatCode', 'go,python'],
+		\ ]
+        call denite#custom#var('menu', 'menus', s:menus)
 
   " Remove date from buffer list
   call denite#custom#var('buffer', 'date_format', '')
@@ -40,17 +61,16 @@ try
   "   highlight_matched_range - matched range highlight
   "\ 'split': 'floating','horizontal'
   let s:denite_options = {'default' : {
-  \ 'split': 'floating',
+  \ 'split': 'horizontal',
   \ 'start_filter': 1,
-  \ 'auto_resize': 1,
+  \ 'auto_resize': 0,
   \ 'source_names': 'short',
   \ 'prompt': 'λ ',
   \ 'highlight_matched_char': 'QuickFixLine',
   \ 'highlight_matched_range': 'Visual',
   \ 'highlight_window_background': 'Visual',
   \ 'highlight_filter_background': 'DiffAdd',
-  \ 'winrow': 1,
-  \ 'vertical_preview': 1
+  \ 'winrow': 1
   \ }}
 
   " Loop through denite options and enable them
@@ -70,7 +90,16 @@ try
   " ============================================================================ "
   " ===                             KEY MAPPINGS                             === "
   " ============================================================================ "
-
+  autocmd FileType denite
+  \ call s:denite_my_settings()
+  function! s:denite_my_settings() abort
+    nnoremap <silent><buffer> <C-b>
+    \ :<C-u>call <SID>denite_quickfix()<CR>
+  endfunction
+  function! s:denite_quickfix()
+    call denite#call_map('toggle_select_all')
+    call denite#call_map('do_action', 'quickfix')
+  endfunction
   " === Denite shorcuts === "
   "   ;         - Browser currently open buffers
   "   <leader>t - Browse list of files in current directory
