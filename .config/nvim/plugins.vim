@@ -32,6 +32,7 @@ Plug 'neoclide/coc-sources', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
 Plug 'amiralies/coc-flow', {'do': 'yarn install --frozen-lockfile'}
+Plug 'josa42/coc-sh', {'do': 'yarn install --frozen-lockfile'}
 
 " Navigation
 if isdirectory('/usr/local/opt/fzf')
@@ -80,9 +81,14 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'sheerun/vim-polyglot'
 
 "
-" Surrond tool
+" Surround tool
 "
 Plug 'tpope/vim-surround'
+
+"
+" Fixes repeat for some of the plugins e.g. surround
+"
+Plug 'tpope/vim-repeat'
 
 "
 " Terrafrom
@@ -93,6 +99,26 @@ Plug 'hashivim/vim-terraform'
 " Http Client
 "
 Plug 'aquach/vim-http-client'
+
+"
+" Helps managing root directory
+" still not sure about it
+Plug 'airblade/vim-rooter'
+
+"
+" Multi-cursor
+"
+Plug 'mg979/vim-visual-multi'
+
+"
+" Helps with navigation
+"
+Plug 'easymotion/vim-easymotion'
+
+"
+" Helps navigating Camel Case
+"
+"Plug 'bkad/CamelCaseMotion'
 
 call plug#end()
 

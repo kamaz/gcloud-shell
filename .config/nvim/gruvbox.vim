@@ -1,14 +1,15 @@
-" Or if you have Neovim >= 0.1.5
-if (has("termguicolors"))
- set termguicolors
-endif
+try 
+  if (has("termguicolors"))
+   set termguicolors
+  endif
 
-" Theme
-syntax enable
-" colorscheme OceanicNext
-" let g:airline_theme='oceanicnext'
-set background=dark
-autocmd vimenter * colorscheme gruvbox
-let g:airline_theme='gruvbox'
-let g:gruvbox_contrast_dark='hard'
-let g:gruvbox_contrast_light='hard'
+  " Theme
+  syntax enable
+  colorscheme gruvbox
+  " autocmd vimenter * colorscheme gruvbox
+  let g:airline_theme='gruvbox'
+  let g:gruvbox_contrast_dark='hard'
+  let g:gruvbox_contrast_light='hard'
+catch
+  echo 'Grubbox not installed. It should work after running :PlugInstall'
+endtry

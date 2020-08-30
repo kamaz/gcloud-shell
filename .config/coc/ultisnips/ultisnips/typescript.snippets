@@ -24,7 +24,11 @@
 #
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
 snippet ita "it (js)"
-	it('${1:description}', async () => {
-		$0
-	});
+it('${1:description}', async () => {
+$0
+});
+endsnippet
+
+snippet etoq "expect().toEqual()"
+expect(${1}).toEqual($0)
 endsnippet

@@ -44,10 +44,10 @@ set cmdheight=1
 "
 " Switching windows
 "
-noremap <M-j> <C-w>j
-noremap <M-k> <C-w>k
-noremap <M-l> <C-w>l
-noremap <M-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+noremap <C-h> <C-w>h
 
 "
 " Buffers
@@ -104,6 +104,8 @@ else
     set shell=/bin/sh
 endif
 nnoremap <silent> <leader>sh :terminal<CR>
+tnoremap <c-]><c-]> <c-\><c-n>
+
 "
 "" Clean search (highlight)
 nnoremap <silent> <leader><space> :noh<cr>
@@ -138,6 +140,7 @@ cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qall qall
 
+
 "
 " Plugins Bootstrap
 "
@@ -156,9 +159,14 @@ source ~/.config/nvim/git.vim
 source ~/.config/nvim/go.vim
 source ~/.config/nvim/haskell.vim
 source ~/.config/nvim/nerdtree.vim
-source ~/.config/nvim/oceanicnext.vim
+" source ~/.config/nvim/oceanicnext.vim
 source ~/.config/nvim/gruvbox.vim
 source ~/.config/nvim/snippets.vim
 source ~/.config/nvim/ui.vim
 source ~/.config/nvim/terraform.vim
 source ~/.config/nvim/coc.vim
+source ~/.config/nvim/rooter.vim
+
+" UI
+"
+set background=dark

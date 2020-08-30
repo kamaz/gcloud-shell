@@ -83,9 +83,9 @@ endfunction
 
 " Editor theme
 " set background=dark
-try
-  colorscheme OceanicNext
-catch
-  colorscheme murphy
-endtry
+" try
+  " colorscheme OceanicNext
+" catch
+  " colorscheme murphy
+" endtry
 
